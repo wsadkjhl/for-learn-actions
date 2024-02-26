@@ -1,5 +1,7 @@
 # 可选 没有的话以文件名为name
 name: learn-github-actions
+
+# 可选 类似说明
 run-name: ${{ github.actor }} is learning GitHub Actions
 
 # 触发动作
