@@ -16,17 +16,47 @@ jobs:
     # job运行环境
     runs-on: ubuntu-latest
 
+    # 可选 默认工作目录
+    #defaults:
+    #  run:
+    #    working-directory: ./scripts
+    
     # 步骤集
     steps:
 
       # actions仓库地址 https://github.com/actions/
-      - uses: actions/checkout@v4 # 引用actions
-
-      # 使用node14
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
+      - name: checkout # 可选 step name
+        uses: actions/checkout@v4 # 引用actions
+        with: # 参考action库说明
+          clean: true
 
       # 运行命令
-      - run: npm install -g bats
-      - run: bats -v
+      - run: echo "$ENAME"
+        env:
+          ENAME: fish
+
+      # 上下文
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo "$JOB_CONTEXT"
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
+      - name: Dump runner context
+        env:
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+        run: echo "$RUNNER_CONTEXT"
+      - name: Dump strategy context
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
+      - name: Dump matrix context
+        env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
