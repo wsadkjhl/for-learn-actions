@@ -22,11 +22,6 @@ jobs:
 
     # job运行环境
     runs-on: ubuntu-latest
-
-    # 可选 默认工作目录
-    #defaults:
-    #  run:
-    #    working-directory: ./scripts
     
     # 步骤集
     steps:
@@ -47,4 +42,4 @@ jobs:
         run: echo ${{inputs.sname}} | tr '/' '_'
 
       - name: Set GH_ENV
-        run: echo ${{ toJson(vars) }}
+        run: ${{ vars }}
