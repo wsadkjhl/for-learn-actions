@@ -33,13 +33,13 @@ jobs:
           clean: true
 
       # 上下文
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+      #- name: Dump GitHub context
+      #  env:
+      #    GITHUB_CONTEXT: ${{ toJson(github) }}
+      #  run: echo "$GITHUB_CONTEXT"
         
-      - name: change seporate
-        run: echo ${{inputs.sname}} | tr '/' '_'
+      #- name: change seporate
+      #  run: echo ${{inputs.sname}} | tr '/' '_'
 
       - name: Set GH_ENV
-        run: ${{ vars }}
+        run: echo ${{ vars.FLA.K1 }}
