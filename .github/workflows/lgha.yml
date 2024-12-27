@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       sname:
-        required: true
+        required: false
         type: string
         default: 'domain/namespace/name:tag'
       
@@ -45,3 +45,9 @@ jobs:
         
       - name: vars
         run: echo ${{inputs.sname}} | tr '/' '_'
+
+      - name: Set GH_ENV
+        run: echo "GH_TEST=csy" >> $GITHUB_ENV
+
+      - name: Get GH_ENV
+        run: echo $GH_TEST
