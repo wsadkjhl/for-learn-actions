@@ -22,6 +22,8 @@ jobs:
 
     # job运行环境
     runs-on: ubuntu-latest
+
+    environment: FLA
     
     # 步骤集
     steps:
