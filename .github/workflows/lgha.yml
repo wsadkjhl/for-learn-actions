@@ -43,11 +43,8 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
         
-      - name: vars
+      - name: change seporate
         run: echo ${{inputs.sname}} | tr '/' '_'
 
       - name: Set GH_ENV
-        run: echo "GH_TEST=csy" >> $GITHUB_ENV
-
-      - name: Get GH_ENV
-        run: echo $GH_TEST
+        run: echo ${{ toJson(vars) }}
