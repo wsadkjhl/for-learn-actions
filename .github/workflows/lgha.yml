@@ -47,9 +47,9 @@ jobs:
       - name: Set GH_ENV
         run: >
           curl -X POST -i https://iam.${{ env.REGION }}.myhuaweicloud.com/v3/auth/tokens
-          -H Content-Type: application/json
+          -H "Content-Type: application/json"
           -d
-          {
+          '{
             "auth": {
               "identity": {
                 "methods": [
@@ -71,4 +71,4 @@ jobs:
                 }
               }
             }
-          }
+          }'
