@@ -73,4 +73,4 @@ jobs:
             }
           }'
           | grep "X-Subject-Token:"
-          | sed 's/:/\n/g'
+          | sed 's/X-Subject-Token://g'
