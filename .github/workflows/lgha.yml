@@ -48,3 +48,27 @@ jobs:
         run: >
           curl -X POST -i https://iam.${{ env.REGION }}.myhuaweicloud.com/v3/auth/tokens
           -H Content-Type: application/json
+          -d
+          {
+            "auth": {
+              "identity": {
+                "methods": [
+                  "password"
+                ],
+                "password": {
+                  "user": {
+                    "name": "iamgh",
+                    "password": "ghyIAM",
+                    "domain": {
+                        "name": "${{ HW_PASSWORD }}"
+                    }
+                  }
+                }
+              },
+              "scope": {
+                "project": {
+                  "name": "cn-north-4"
+                }
+              }
+            }
+          }
