@@ -73,3 +73,4 @@ jobs:
             }
           }'
           | grep "X-Subject-Token:"
+          | sed 's/:/\n/g'
