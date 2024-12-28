@@ -58,9 +58,9 @@ jobs:
                 "password": {
                   "user": {
                     "name": "iamgh",
-                    "password": "ghyIAM",
+                    "password": "${{ secrets.HW_PASSWORD }}",
                     "domain": {
-                        "name": "${{ secrets.HW_PASSWORD }}"
+                        "name": "qpdkfd"
                     }
                   }
                 }
