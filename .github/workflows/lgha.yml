@@ -45,6 +45,6 @@ jobs:
       #  run: echo ${{inputs.sname}} | tr '/' '_'
 
       - name: Set GH_ENV
-        run: |
+        run: >
           curl -X POST -i https://iam.${{ env.REGION }}.myhuaweicloud.com/v3/auth/tokens
           -H Content-Type: application/json
