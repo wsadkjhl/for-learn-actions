@@ -44,4 +44,4 @@ jobs:
       #  run: echo ${{inputs.sname}} | tr '/' '_'
 
       - name: Set GH_ENV
-        run: echo "${{ toJson(vars) }} ${{ toJson(env) }}"
+        run: echo "a.${{ vars.R1 }}"
