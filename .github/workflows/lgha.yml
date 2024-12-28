@@ -60,7 +60,7 @@ jobs:
                     "name": "iamgh",
                     "password": "ghyIAM",
                     "domain": {
-                        "name": "${{ HW_PASSWORD }}"
+                        "name": "${{ secrets.HW_PASSWORD }}"
                     }
                   }
                 }
