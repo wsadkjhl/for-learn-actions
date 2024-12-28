@@ -7,11 +7,14 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 # 触发动作
 on:
   workflow_dispatch:
-    inputs:
-      sname:
-        required: false
-        type: string
-        default: 'domain/namespace/name:tag'
+    #inputs:
+     # sname:
+       # required: false
+      #  type: string
+      #  default: 'domain/namespace/name:tag'
+
+env:
+  REGION: cn-north-4
       
 
 # job集
@@ -22,8 +25,6 @@ jobs:
 
     # job运行环境
     runs-on: ubuntu-latest
-
-    environment: FLA
     
     # 步骤集
     steps:
@@ -44,4 +45,6 @@ jobs:
       #  run: echo ${{inputs.sname}} | tr '/' '_'
 
       - name: Set GH_ENV
-        run: echo "a.${{ vars.R1 }}"
+        run: |
+          curl -X POST -i https:://iam.${{ REGION }}.myhuaweicloud.com/v3/auth/tokens
+          -H Content-Type: application/json
