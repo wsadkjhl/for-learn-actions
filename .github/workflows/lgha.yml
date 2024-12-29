@@ -46,31 +46,7 @@ jobs:
 
       - name: Set GH_ENV
         run: >
-          curl -X POST -i https://iam.${{ env.REGION }}.myhuaweicloud.com/v3/auth/tokens
-          -H "Content-Type: application/json"
-          -d
-          '{
-            "auth": {
-              "identity": {
-                "methods": [
-                  "password"
-                ],
-                "password": {
-                  "user": {
-                    "name": "iamgh",
-                    "password": "${{ secrets.HW_PASSWORD }}",
-                    "domain": {
-                        "name": "qpdkfd"
-                    }
-                  }
-                }
-              },
-              "scope": {
-                "project": {
-                  "name": "cn-north-4"
-                }
-              }
-            }
-          }'
-          | grep "X-Subject-Token:"
-          | sed 's/X-Subject-Token://g'
+          "tokk": "tkv" >> "$GITHUB_ENV"
+
+      - name: get tokk
+        run: echo $tokk
