@@ -46,7 +46,7 @@ jobs:
 
       - name: Set GH_ENV
         run: >
-          "tokk": "tkv" >> "$GITHUB_ENV"
+          echo "tokk: tkv" >> "$GITHUB_ENV"
 
       - name: get tokk
         run: echo $tokk
